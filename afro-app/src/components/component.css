@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+.loggin-btn{
+    color: #A1D7FD;
+    border: 1px solid #A1D7FD;
+    padding: 5px 7px;
+}
+
+.spaceBar{
+    padding-left: 10px;
+    border-left: 1px solid #bdbebf;
+    margin-left: 10px;
+}
+
+.searchHolder{
+    background-color: #F9FAFC;
+}
