@@ -1,69 +1,56 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import "./slider.css"
 
 function SlideerShow() {
-    let slideIndex = 1;
-    showSlides(slideIndex);
-
-    function plusSlides(n){
-
-    }
-
-    function currentSlide(n){
-        showSlides(slideIndex = n);
-    }
+    const [slideIndex, setSlideIndex] = useState(1);
     
-    function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " active";
-      }
+  const slides = [
+    { src: '/1.png', text: 'Caption Text' },
+    { src: '/2.jpg', text: 'Caption Two' },
+    { src: '/3.png', text: 'Caption Three' },
+  ];
 
-  return (
-    <div>
-        <div className="slideshow-container">
+  const plusSlides = (n: number) => {
+    const newSlideIndex = (slideIndex + n - 1 + slides.length) % slides.length + 1;
+    setSlideIndex(newSlideIndex);
+  };
 
-            <div className="mySlides fade">
-            <div className="numbertext">1 / 3</div>
-            <img src="img2.jpg" style={{width:"100%"}}/>
-            <div className="text">Caption Text</div>
-            </div>
+  const currentSlide = (n: number) => {
+    setSlideIndex(n);
+  };
 
-            <div className="mySlides fade">
-            <div className="numbertext">2 / 3</div>
-            <img src="img2.jpg" style={{width:"100%"}}/>
-            <div className="text">Caption Two</div>
-            </div>
+    return (
+        <div>
+            <div className="slideshow-container">
+            {slides.map((slide, index) => (
+                <div
+                key={index}
+                className={`mySlides fade ${slideIndex === index + 1 ? 'active' : ''}`}
+                style={{ display: slideIndex === index + 1 ? 'block' : 'none' }}
+                >
+                <img src={slide.src} style={{ width: '100%' }} alt={`Slide ${index + 1}`} />
+                </div>
+            ))}
 
-            <div className="mySlides fade">
-            <div className="numbertext">3 / 3</div>
-            <img src="img21.jpg" style={{width:"100%"}}/>
-            <div className="text">Caption Three</div>
-            </div>
-
-            <a className="prev" onClick={plusSlides(-1)}>&#10094;</a>
-            <a className="next" onClick={plusSlides(1)}>&#10095;</a>
-            </div>
-            <br/>
-
-            <div style={{textAlign:"center"}}>
-            <span className="dot" onClick={currentSlide(1)}></span>
-            <span className="dot" onClick={currentSlide(2)}></span>
-            <span className="dot" onClick={currentSlide(3)}></span>
+            <a className="prev" onClick={() => plusSlides(-1)}>&#10094;</a>
+            <a className="next" onClick={() => plusSlides(1)}>&#10095;</a>
+              <div className='selective-slide' style={{ textAlign: 'center' }}>
+                {slides.map((_, index) => (
+                    <span
+                    key={index}
+                    className={`dot ${slideIndex === index + 1 ? 'active' : ''}`}
+                    onClick={() => currentSlide(index + 1)}
+                    ></span>
+                ))}
+              </div>
             </div>
             
-    </div>
-  )
+            <br />
+
+
+        </div>
+    );
 }
 
 export default SlideerShow

@@ -7,14 +7,14 @@ function SearchBar() {
         <div className="flex flex-row basis-3/12 spaceBar">
             <span className="basis-8/12">همه شهر ها</span>
             <span className="basis-4/12 flex justify-end">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="#7FC9FB" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#7FC9FB" className="size-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" fill="#7FC9FB" />
+                <svg xmlns="http://www.w3.org/2000/svg" fill="#E5E7EB" viewBox="0 0 24 24" strokeWidth="1.5" stroke="black" className="size-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" fill="" />
                 </svg>
             </span>
         </div>
         <div className="flex basis-9/12">
             <div className="w-10/12">
-                <input placeholder="جستجو در استخر ها،پارک های آبی،خدمات ماساژ..."/>
+                <input className="w-full searchItem" placeholder="جستجو در استخر ها،پارک های آبی،خدمات ماساژ..."/>
             </div>
             <div className="w-2/12 flex justify-end">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="#e2e2e2" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#7FC9FB"  className="size-6">
