@@ -2,7 +2,10 @@ import React from 'react'
 import StarRating from './StarRating'
 import "./card.css"
 
-function ProductCard() {
+type PoolPicture = {
+    src: string;   // The `src` must be a string
+};
+function ProductCard({src}:PoolPicture) {
   return (
     <div className='product-card p-1 border-1 border-gray-400 h-80 rounded-lg shadow-md shadow-gray-300'>
         <div className='card relative'>
@@ -22,7 +25,7 @@ function ProductCard() {
                 </div>
             </div>
             <div className='rounded-lg overflow-hidden'>
-                <img src='/1.png' />
+                <img className='w-96 h-50' src={src} />
             </div>
         </div>
         <div className='my-2 px-3 text-start'>

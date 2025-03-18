@@ -1,7 +1,15 @@
-import "../component.css"
+"use client";
 
-import React from 'react'
+import "../component.css"
+import axios from 'axios';
+
+import React, { useEffect, useState } from 'react'
 function SearchBar() {
+    const [data,setData]=useState()
+
+    useEffect(()=>{
+        axios.get("https://jsonplaceholder.typicode.com/posts").then((response)=>setData(response.data)).catch((err)=>{console.log(err)})
+    },[])
   return (
     <div className="flex flex-row bg-gray-200 py-2 px-5 rounded-lg">
         <div className="flex flex-row basis-3/12 spaceBar">

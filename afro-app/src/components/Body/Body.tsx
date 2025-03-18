@@ -1,8 +1,38 @@
-import React from 'react'
-import SlideerShow from '../sliderShow/SlideerShow'
-import '../component.css'
-import ProductCard from '../ProductCard/ProductCard'
-import NavigationSlider from '../navigation/Navigation'
+"use client";
+
+import React, { useEffect, useState } from 'react';
+import SlideerShow from '../sliderShow/SlideerShow';
+import '../component.css';
+import ProductCard from '../ProductCard/ProductCard';
+import NavigationSlider from '../navigation/Navigation';
+import { Interface } from 'readline';
+
+
+
+const poolPictures=[
+    {
+        id:2,
+        src:"./pool2.jpg"
+    },
+    {
+        id:3,
+        src:"./pool3.jpg"
+    },
+    {
+        id:4,
+        src:"./pool4.jpg"
+    },
+    {
+        id:5,
+        src:"./pool5.jpg"
+    },
+    {
+        id:6,
+        src:"./pool6.jpg"
+    },
+
+]
+
 
 
 function BodyFirstSection() {
@@ -90,16 +120,11 @@ function BodyFirstSection() {
                 </svg>
             </span>
         </div>
-        <div className='flex justify-between gap-4 mt-3 overflow-x-auto h-80'>
+        <div className='flex justify-between gap-4 mt-3 overflow-x-auto h-auto'>
 
             <div className='flex gap-2 px-1 '>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
+                {poolPictures.map((poolPicture)=><ProductCard src={poolPicture.src} key={poolPicture.id}/>)}
+                
             </div>
         </div>
         <div className='h-10 w-10 absolute nextSlide'>
@@ -113,17 +138,17 @@ function BodyFirstSection() {
 
     <div className='my-10'>
         <div className='flex justify-between mb-10 gap-5'>
-            <div className='w-1/2'><img className='h-80 w-full object-cover rounded-3xl border-1 border-gray-200' src='/6.png' /></div>
-            <div className='w-1/2'><img className='h-80 w-full object-cover rounded-3xl border-1 border-gray-200' src='/5.jpg' /></div>
+            <div className='w-1/2'><img className='h-80 w-full object-cover p-1  rounded-3xl border-1 border-gray-200' src='/pool6.jpg' /></div>
+            <div className='w-1/2'><img className='h-80 w-full object-cover p-1  rounded-3xl border-1 border-gray-200' src='/pool5.jpg' /></div>
         </div>
     </div>
     <hr/>
     <div className='my-10'>
         <div className='flex flex-row justify-between gap-2'>
-            <div><img className='h-70 w-full rounded-3xl p-1 object-cover border-1 border-gray-200' src='/6.png' /></div>
-            <div><img className='h-70 w-full rounded-3xl p-1 object-cover border-1 border-gray-200' src='/1.png' /></div>
-            <div><img className='h-70 w-full rounded-3xl p-1 object-cover border-1 border-gray-200' src='/1.png' /></div>
-            <div><img className='h-70 w-full rounded-3xl p-1 object-cover border-1 border-gray-200' src='/1.png' /></div>
+            <div className='w-1/4'><img className='h-70 w-full rounded-3xl p-1 object-cover border-1 border-gray-200' src='/pool2.jpg' /></div>
+            <div className='w-1/4'><img className='h-70 w-full rounded-3xl p-1 object-cover border-1 border-gray-200' src='/pool4.jpg' /></div>
+            <div className='w-1/4'><img className='h-70 w-full rounded-3xl p-1 object-cover border-1 border-gray-200' src='/pool3.jpg' /></div>
+            <div className='w-1/4'><img className='h-70 w-full rounded-3xl p-1 object-cover border-1 border-gray-200' src='/pool5.jpg' /></div>
         </div>
     </div>
     <div className='my-10'>

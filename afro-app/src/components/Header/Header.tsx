@@ -6,7 +6,7 @@ export default function Header(){
         <>
             <div className="flex flex-row items-center Header-top-part mb-5">
                 <div className="basis-2/3 flex flex-row items-center">
-                    <div className="basis-2/12">🤔</div>
+                    <div className="basis-2/12"><img src="/poolLogo.png" className="w-15 h-15 rounded-4xl"/></div>
                     <div className="basis-10/12">
                         <SearchBar />
                     </div>
